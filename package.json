@@ -1,0 +1,46 @@
+{
+  "name": "webpack-init",
+  "version": "1.0.0",
+  "description": "for webpack study",
+  "private": false,
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --config config/webpack.dev.config.js",
+    "build": "rm -rf ./dist && webpack --config config/webpack.prod.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WaltsonGao/webpack-init.git"
+  },
+  "author": "rick7062@163.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WaltsonGao/webpack-init/issues"
+  },
+  "homepage": "https://github.com/WaltsonGao/webpack-init#readme",
+  "devDependencies": {
+    "autoprefixer": "^9.6.1",
+    "css-loader": "^3.0.0",
+    "file-loader": "^4.0.0",
+    "node-sass": "^4.12.0",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "url-loader": "^2.0.1",
+    "webpack": "^4.35.3",
+    "webpack-cli": "^3.3.5"
+  },
+  "dependencies": {
+    "lodash": "^4.17.14"
+  },
+  "engines": {
+    "node": ">= 8.9.4",
+    "npm": ">= 5.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 9"
+  ]
+}
