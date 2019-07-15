@@ -1,6 +1,8 @@
 // import { join } from 'lodash';
 import './assets/css/common.scss';
 import Icon from './assets/img/miao.jpg';
+import Data from './data.xml';
+
 
 function component() {
     let element = document.createElement('div');
@@ -14,5 +16,6 @@ function component() {
 
     return element;
 }
+console.log('Data', Data);
 
 document.body.appendChild(component());

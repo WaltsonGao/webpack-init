@@ -28,13 +28,13 @@ module.exports = {
                 ]
             }, {
                 test: /\.(png|jpg|svg|gif)$/,
-                use: ['file-loader']
-                // loader: 'url-loader',
-                // options: {
-                //     limit: 10000,
-                //     name: '[name].[hash:7].[ext]',
-                //     // publicPath: '/'
-                // }
+                // use: ['file-loader']
+                loader: 'url-loader',
+                options: {
+                    limit: 10000,
+                    name: 'img/[name].[hash:7].[ext]',
+                    publicPath: './dist/'
+                }
             },
             {
                 test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
@@ -43,6 +43,12 @@ module.exports = {
                     limit: 10000,
                     name: 'fonts/[name].[hash:7].[ext]'
                 }
+            },
+            {
+                test: /\.xml$/,
+                use: [
+                    'xml-loader'
+                ]
             }
 
         ]
