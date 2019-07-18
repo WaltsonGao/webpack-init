@@ -1,9 +1,21 @@
 'use strict';
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     mode: 'development',
     devtool: '#cheap-module-eval-source-map',
+    devServer: {
+        host: '0.0.0.0',
+        overlay: true,
+        port: 8090,
+        historyApiFallback: true,
+        compress: true,
+        inline: true,
+        hot: true,
+        // open: true,
+        clientLogLevel: 'none',
+    },
     entry: {
         app: './src/main.js'
     },
@@ -33,7 +45,7 @@ module.exports = {
                 options: {
                     limit: 10000,
                     name: 'img/[name].[hash:7].[ext]',
-                    publicPath: './dist/'
+                    publicPath: './'
                 }
             },
             {
@@ -54,7 +66,10 @@ module.exports = {
         ]
     },
     plugins: [
-
+        new HtmlWebpackPlugin({
+            filename: "index.html",
+            template: 'index.html'
+        }),
     ]
 
 };

@@ -1,7 +1,6 @@
 // import { join } from 'lodash';
 import './assets/css/common.scss';
 import Icon from './assets/img/miao.jpg';
-import Data from './data.xml';
 
 
 function component() {
@@ -13,9 +12,9 @@ function component() {
     let myIcon = new Image();
     myIcon.src = Icon;
     element.appendChild(myIcon);
+    console.log('aaaa');
 
     return element;
 }
-console.log('Data', Data);
 
 document.body.appendChild(component());
