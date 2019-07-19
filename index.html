@@ -3,10 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <title>Vue 双向绑定实现</title>
+    <script src="./src/watcher.js"></script>
+    <script src="./src/dep.js"></script>
+    <script src="./src/observer.js"></script>
+    <script src="./src/compile.js"></script>
 </head>
 <body>
-<div>
-    test
-</div>
+    <div id="app">
+        <h2 class="title">{{message}}</h2>
+        <input type="text" v-model="message">
+        <button class="btn" v-on:click="changeMessage">changeMessage</button>
+    </div>
+    <script>
+        function SelfVue(options) {
+            this.vm = this;
+            let self = this;
+            this.data = options.data;
+            this.methods = options.methods;
+            Object.keys(options.data).forEach(function(key) {
+                self.proxyKeys(key);  // 绑定代理属性
+            });
+
+            observe(options.data);
+            new Compile(options.el, this.vm)
+            options.mounted.call(this);
+            return this;
+        }
+        SelfVue.prototype = {
+            proxyKeys(key) {
+                let self = this;
+                Object.defineProperty(this, key, {
+                    enumerable: false,
+                    configurable: true,
+                    get() {
+                        return self.data[key];
+                    },
+                    set(newValue) {
+                        self.data[key] = newValue;
+                    }
+                })
+            }
+        };
+
+        let selfVue = new SelfVue({
+            el: '#app',
+            data: {
+                message: 'SelfVue test in Line',
+            },
+            mounted() {
+                this.message = '测试成功';
+            },
+            methods: {
+                changeMessage() {
+                    selfVue.message = 'I have changed';
+                }
+            }
+        });
+    </script>
 </body>
 </html>

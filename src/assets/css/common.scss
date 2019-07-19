@@ -1,8 +1,13 @@
+@import "./reset.scss";
 #app {
     color: #000;
-    &:hover {
+    margin: 20px 30px;
+    .title:hover {
         color: cornflowerblue;
-        display: flex;
-        box-shadow: 1px 1px 1px #000000;
+    }
+    input {
+        height: 24px;
+        line-height: 24px;
+        width: 200px;
     }
 }

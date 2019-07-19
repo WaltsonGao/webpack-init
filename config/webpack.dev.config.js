@@ -15,6 +15,17 @@ module.exports = {
         hot: true,
         // open: true,
         clientLogLevel: 'none',
+        // 输出的日志信息
+        stats: {
+            // 添加 public path 的信息
+            publicPath: true,
+            // 添加构建模块信息, 这个日志非常多，关掉
+            modules: false,
+            // 添加 children 信息, 非常多
+            children: false,
+            // 添加警告
+            warnings: true
+        }
     },
     entry: {
         app: './src/main.js'
@@ -22,6 +33,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, '..', 'dist'),
         filename: "[name].js",
+        chunkFilename: "[name].js"
     },
     module: {
         rules: [
@@ -64,6 +76,25 @@ module.exports = {
             }
 
         ]
+    },
+    optimization: {
+        splitChunks: {
+            chunks: "all",
+            minSize: 30000,
+            maxSize: 0,
+            minChunks: 1,
+            maxAsyncRequests: 5,
+            maxInitialRequests: 3,
+            automaticNameDelimiter: '~',
+            name: true,
+            cacheGroups: {
+                vendors: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'vendor',
+                    chunks: "all"
+                }
+            }
+        }
     },
     plugins: [
         new HtmlWebpackPlugin({
