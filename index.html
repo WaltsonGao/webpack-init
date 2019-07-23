@@ -32,15 +32,14 @@
         }
         SelfVue.prototype = {
             proxyKeys(key) {
-                let self = this;
                 Object.defineProperty(this, key, {
                     enumerable: false,
                     configurable: true,
                     get() {
-                        return self.data[key];
+                        return this.data[key];
                     },
                     set(newValue) {
-                        self.data[key] = newValue;
+                        this.data[key] = newValue;
                     }
                 })
             }
