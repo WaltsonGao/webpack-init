@@ -13,7 +13,7 @@ module.exports = {
         compress: true,
         inline: true,
         hot: true,
-        // open: true,
+        open: true,
         clientLogLevel: 'none',
         // 输出的日志信息
         stats: {
