@@ -5,12 +5,90 @@
     <title>居中布局</title>
     <meta name="description" content="垂直布局的实现">
     <style>
+        /*.box {
+            line-height: 300px;
+            border: 1px solid;
+        }
+        span {
+            display: inline-block;
+            height: 100px;
+            width: 100px;
+            background-color: lightgreen;
+            vertical-align: middle;
+        }*/
+        .box {
+            /*line-height: 30px;*/
+            /*background: lightgreen;*/
+            outline: 1px solid;
+            text-align: center;
+        }
+        .box span {
+            display: inline-block;
+            width: 200px;
+            height: 200px;
+            font-size: 30px;
+            background-color: aqua;
+        }
+
+        .container{
+            position: fixed;
+            top: 0; right: 0; bottom: 0; left: 0;
+            background-color: rgba(0, 0, 0, .15);
+            text-align: center;
+            font-size: 0;
+            white-space: nowrap;
+            overflow: auto;
+        }
+        .container:after{
+            content: '';
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+        }
+        .dialog{
+            display: inline-block;
+            width: 400px;
+            height: 400px;
+            vertical-align: middle;
+            text-align: left;
+            font-size: 14px;
+            white-space: normal;
+            background: white;
+        }
+
+
+        .module-container {
+            height: 500px;
+            border: 1px solid #efefef;
+        }
+
+        .left-menu {
+            float: left;
+            width: 200px;
+            height: 100%;
+            background-color: aliceblue;
+        }
+        .main {
+            background-color: aquamarine;
+            overflow: auto;
+            height: 100%;
+        }
     </style>
 </head>
 <body>
-    <div id="app"></div>
-    <div class="v-parent">
-        <div class="vertical-son">碧玉妆成一树高，万条垂下绿丝绦。不知细叶谁裁出，二月春风似剪刀</div>
+    <!--<div class="box">
+        <span>
+        </span>
+    </div>-->
+ <!--   <div class="container">
+        <div class="dialog">自适应弹出层</div>
+    </div>-->
+
+    <div class="module-container">
+        <div class="left-menu">左菜单</div>
+        <div class="main">
+            <div></div>
+        </div>
     </div>
 </body>
 </html>
