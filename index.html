@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>居中布局</title>
-    <meta name="description" content="垂直布局的实现">
+    <meta name="description" content="https://juejin.im/post/59b73d5bf265da064618731d">
     <style>
         * {
             margin: 0;
@@ -16,6 +16,8 @@
             width: 200px;
             height: 200px;
             float: left;
+            margin-top: 20px;
+            margin-bottom: 20px;
         }
         .right{                        /* 粉色 */
             background: #EF5BE2;
@@ -25,16 +27,32 @@
             min-height: 100px;
         }
         .box{
-            background:#888;
+            background: #888;
             height: 100%;
             margin-left: 50px;
+            width: 800px;
+        }
+
+        .little{
+            background: #fff;
+            width: 50px;
+            height: 50px;
+            margin: 10px;
+            float: left;
         }
     </style>
 </head>
 <body>
 <div class='box'>
     <div class='left'> </div>
-    <div class='right'> </div>
+    <div class='right'>
+        <div class='little'></div>
+        <div class='little'></div>
+        <div class='little'></div>
+        <div class='little'></div>
+        <div class='little'></div>
+        <div class='little'></div>
+    </div>
 </div>
 </body>
 </html>
