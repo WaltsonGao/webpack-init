@@ -2,63 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Vue 双向绑定实现</title>
-    <meta name="description" content="源自: https://blog.csdn.net/qq_43051529/article/details/82877673">
-    <script src="./src/watcher.js"></script>
-    <script src="./src/dep.js"></script>
-    <script src="./src/observer.js"></script>
-    <script src="./src/compile.js"></script>
+    <title>Webpack</title>
+    <meta name="description" content="参考: https://juejin.im/post/5b304f1f51882574c72f19b0">
 </head>
 <body>
     <div id="app">
-        <h2 class="title">{{message}}</h2>
-        <input type="text" v-model="message">
-        <button class="btn" v-on:click="changeMessage">changeMessage</button>
     </div>
-    <script>
-        function SelfVue(options) {
-            this.vm = this;
-            let self = this;
-            this.data = options.data;
-            this.methods = options.methods;
-            Object.keys(options.data).forEach(function(key) {
-                self.proxyKeys(key);  // 绑定代理属性
-            });
-
-            observe(options.data);
-            new Compile(options.el, this.vm)
-            options.mounted.call(this);
-            return this;
-        }
-        SelfVue.prototype = {
-            proxyKeys(key) {
-                Object.defineProperty(this, key, {
-                    enumerable: false,
-                    configurable: true,
-                    get() {
-                        return this.data[key];
-                    },
-                    set(newValue) {
-                        this.data[key] = newValue;
-                    }
-                })
-            }
-        };
-
-        let selfVue = new SelfVue({
-            el: '#app',
-            data: {
-                message: 'SelfVue test in Line',
-            },
-            mounted() {
-                this.message = '测试成功';
-            },
-            methods: {
-                changeMessage() {
-                    selfVue.message = 'I have changed';
-                }
-            }
-        });
-    </script>
 </body>
 </html>

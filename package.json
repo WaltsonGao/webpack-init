@@ -24,6 +24,7 @@
     "autoprefixer": "^9.6.1",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.0.0",
+    "cz-conventional-changelog": "^3.0.2",
     "file-loader": "^4.0.0",
     "html-webpack-plugin": "^3.2.0",
     "node-sass": "^4.12.0",
@@ -46,5 +47,10 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 9"
-  ]
+  ],
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
