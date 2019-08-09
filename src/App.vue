@@ -4,9 +4,9 @@
         <div>
             <select v-model="selItem" multiple>
                 <option
-                        v-for="item in items"
-                        :value="item.value"
-                        :key="item.text">{{item.text}}</option>
+                    v-for="item in items"
+                    :value="item.value"
+                    :key="item.text">{{item.text}}</option>
             </select>
             <p @click="handleClick">{{selItem}}</p>
         </div>

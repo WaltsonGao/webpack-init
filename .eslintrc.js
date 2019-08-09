@@ -12,10 +12,13 @@ module.exports = {
         Atomics: 'readonly',
         SharedArrayBuffer: 'readonly'
     },
-    parser: "babel-eslint",
     parserOptions: {
-        ecmaVersion: 2018,
-        sourceType: 'module'
+        ecmaVersion: 2018, // ECMAScript的版本
+        sourceType: "module", // sourceType指定被检查的文件是什么扩展名的，可选项"script"和"module"，默认是"script"。"module"是ES6的。
+        parser: "babel-eslint", // parser指定解析器，默认的为espree，可选的还有Esprima、Babel-ESLint。
+        ecmaFeatures: {
+            legacyDecotators: true
+        }
     },
     plugins: [
         'vue'
