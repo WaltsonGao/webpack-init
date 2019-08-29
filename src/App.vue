@@ -1,53 +1,32 @@
 <template>
-    <div>
-        {{msg}}
-        <div>
-            <select v-model="selItem" multiple>
-                <option
-                    v-for="item in items"
-                    :value="item.value"
-                    :key="item.text">{{item.text}}</option>
-            </select>
-            <p @click="handleClick">{{selItem}}</p>
-        </div>
-    </div>
+  <div id="app">
+    <router-link to="/">首页</router-link>
+    <router-link to="/about">关于</router-link>
+      <router-view></router-view>
+      {{this._store.state}}
+  </div>
 </template>
 
 <script>
+
 export default {
-    name: 'App',
-    data() {
-        return {
-            msg: 'Hello Man',
-            selItem: [],
-            items: [
-                {
-                    value: 'aaa',
-                    text: '哈哈哈'
-                },
-                {
-                    value: 'bbb',
-                    text: '哇哇哇'
-                },
-                {
-                    value: '',
-                    text: '啧啧啧'
-                },
-                {
-                    value: 'ddd',
-                    text: '嘀嘀嘀'
-                }
-            ]
-        };
-    },
-    methods: {
-        handleClickP() {
-            console.log(1111);
-        },
-        handleClick() {
-            const a = 'aaa';
-            console.log(a);
-        }
+  name: 'app',
+  components: {
+  },
+    mounted() {
+      // this._store.commit('setName');
+        this._store.dispatch('setName');
     }
 };
 </script>
+
+<style>
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+</style>

@@ -1,15 +1,12 @@
-import './assets/css/common.scss';
-
 import Vue from 'vue';
+import router from './router'
+import store from './store'
 import App from './App.vue';
 
-const fun = () => {
-    console.log('aaaa');
-};
-fun();
+Vue.config.productionTip = false;
 
 new Vue({
-    el: '#app',
-    components: { App },
-    template: '<App/>'
-});
+    router,
+    store, // this.$store
+    render: h => h(App),
+}).$mount('#app');
